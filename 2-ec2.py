@@ -125,8 +125,3 @@ try:
 except Exception as e:
     print(e)
 
-# get_instance = input("Please enter your instance id: ")
-# ec2_cli.terminate_instances(InstanceIds=[get_instance])
-
-# 1-
-# 2- CONFIGURE WAITERS........
