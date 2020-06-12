@@ -7,46 +7,6 @@ import time
 lguilarte = boto3.session.Session(profile_name='lguilarte')
 ec2_cli = lguilarte.client(service_name='ec2', region_name='us-east-1')
 
-
-"""
-# 1:
-# List EC2 instances
-
-
-def list_ec2s():
-    response = ec2_cli.describe_instances()['Reservations']
-    num = 0
-    for items in response:
-        for instances in items['Instances']:
-            num += 1
-            print(
-                f"{num}-Instance ID is: {instances['InstanceId']}\nWith AMI id as : {instances['ImageId']}\nWas launched on: {instances['LaunchTime']}")
-    return None
-
-
-# 3:
-# Working with volumes:
-
-
-def vol():
-    list_vlm = ec2_cli.describe_volumes()['Volumes']
-    num = 0
-    for items in list_vlm:
-        num += 1
-        print(
-            f"{num}-{items['VolumeId']} is in AZ {items['AvailabilityZone']}")
-    return None
-
-
-# 4:
-# Menu driven script to performe different status actions on EC2 instance.
-"""
-
-
-# 1- CONFIGURE WAITERS........
-# 2- Implement an option that the user can chose if it want to start, stop, restart or teminate all instances in the account.
-
-
 try:
     def main():
         options = """We can execute one of the below actions:
