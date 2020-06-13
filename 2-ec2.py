@@ -1,4 +1,4 @@
-# Pending....:
+
 # 1- CONFIGURE WAITERS........
 # 2- Implement an option that the user can chose if it want to start, stop, restart or teminate all instances in the account.
 # 3- Users wants to enter the number that match their instance when they chose to the the instance in the display.
@@ -14,7 +14,7 @@ try:
             print(
                 "___________________________________________________________________________")
             menu()
-        elif user_promt.lower() == "no":
+        elif user_promt.lower() == "no" or user_promt.lower() == "n":
             time.sleep(0.7)
             menu()
 
@@ -74,8 +74,6 @@ try:
 
     def start_ec2s():
         get_instance = input("Please enter your instance id: ")
-        # if get_instance in menu():
-
         ec2_cli.start_instances(InstanceIds=[get_instance])
         return None
 
@@ -91,7 +89,7 @@ try:
     def terminate_ec2():
         get_instance = input("Please enter your instance id: ")
         ec2_cli.terminate_instances(InstanceIds=[get_instance])
-    if __name__ == "__main__":
-        main()
+    # if __name__ == "__main__":
+    #     main()
 except Exception as e:
     print(e)
