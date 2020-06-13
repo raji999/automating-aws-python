@@ -1,8 +1,3 @@
-
-# 1- CONFIGURE WAITERS........
-# 2- Implement an option that the user can chose if it want to start, stop, restart or teminate all instances in the account.
-# 3- Users wants to enter the number that match their instance when they chose to the the instance in the display.
-
 try:
     def main():
         print(f"This script allows you to:\n-list all your instances.\n-Start an instance.\n-Stop an instance\n-Restart instance\n-Terminate instance/s.")
@@ -54,13 +49,13 @@ try:
         print("___________________________________________________________________________")
         print(options)
         select = input("Please enter one of the option: ")
-        if select == "1" or select.lower() == "one":
+        if select == "1" or select.lower() == "one" or select.lower() == "start":
             start_ec2s()
-        elif select == "2" or select.lower() == "two":
+        elif select == "2" or select.lower() == "two" or select.lower() == "stop":
             stop_ec2s()
-        elif select == "3" or select.lower() == "reboot":
+        elif select == "3" or select.lower() == "three" or select.lower() == "reboot":
             reboot_ec2s()
-        elif select == "4" or select.lower() == "terminate":
+        elif select == "4" or select.lower() == "four" or select.lower() == "terminate":
             terminate_ec2()
         elif select == "5" or select.lower() == "five" or select.lower() == "exit" or select.lower() == "quit":
             print("GoodBye....."), sys.exit()
