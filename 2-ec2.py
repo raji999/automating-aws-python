@@ -1,7 +1,3 @@
-
-# 1- Implement an option that the user can chose if it want to start, stop, restart or teminate all instances in the account.
-# 2- Users wants to enter the number that match their instance when they chose to the the instance in the display.
-
 try:
     def main():
         print(f"This script allows you to:\n-list all your instances.\n-Start an instance.\n-Stop an instance\n-Restart instance\n-Terminate instance/s.")
