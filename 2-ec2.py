@@ -1,3 +1,8 @@
+import boto3
+from pprint import pprint
+import sys
+import time
+
 try:
     def main():
         print(f"This script allows you to:\n-list all your instances.\n-Start an instance.\n-Stop an instance\n-Restart instance\n-Terminate instance/s.")
