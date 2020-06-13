@@ -1,3 +1,4 @@
+
 # 1- Implement an option that the user can chose if it want to start, stop, restart or teminate all instances in the account.
 # 2- Users wants to enter the number that match their instance when they chose to the the instance in the display.
 
@@ -109,7 +110,7 @@ try:
             waiter.wait(InstanceIds=[get_instance])
             print(
                 "Your instance is now terminated for good.\nThank you!")
-        elif final_notice.lower == "no" or final_notice.lower() == "n":
+        elif final_notice.lower() == "no" or final_notice.lower() == "n":
             print(
                 "I'm glad you changed your mind. Mistakes are never good.\nGoodBye.....")
             sys.exit()
@@ -120,7 +121,6 @@ try:
                 terminate_ec2()
             else:
                 print("GoodBye.....")
-
         return None
     if __name__ == "__main__":
         main()
