@@ -4,6 +4,7 @@ import sys
 import time
 admin = boto3.session.Session(profile_name='lhay')
 ec2_cli = admin.client(service_name='ec2', region_name='us-east-1')
+
 try:
     def main():
         print(f"This script allows you to:\n-list all your instances.\n-Start an instance.\n-Stop an instance\n-Restart instance\n-Terminate instance/s.")
@@ -73,67 +74,6 @@ try:
             else:
                 print("GoodBye.....")
         return None
-
-    def start_ec2s():
-        get_instance = input("Please enter your instance id: ")
-        ec2_cli.start_instances(InstanceIds=[get_instance])
-        print("Starting your ec2 instance, please wait.....")
-        waiter = ec2_cli.get_waiter('instance_running')
-        waiter.wait(InstanceIds=[get_instance])
-        print("Good news, your instance is up and running.\nThank you!")
-        return None
-
-    def stop_ec2s():
-        get_instance = input("Please enter your instance id: ")
-        ec2_cli.stop_instances(InstanceIds=[get_instance])
-        print("Stopping your ec2 instance, please wait.....")
-        waiter = ec2_cli.get_waiter('instance_stopped')
-        waiter.wait(InstanceIds=[get_instance])
-        print("Your instance is now stopped.\nGoodbye!")
-        return None
-
-    def reboot_ec2s():
-        get_instance = input("Please enter your instance id: ")
-        ec2_cli.reboot_instances(InstanceIds=[get_instance])
-        print("Restarting your ec2 instance, please wait.....")
-        waiter = ec2_cli.get_waiter('instance_running')
-        time.sleep(25)
-        waiter.wait(InstanceIds=[get_instance])
-        print("Your instance restarted sucessfully and is now up and running.\nThank you!")
-        return None
-
-    def terminate_ec2():
-        final_notice = input(
-            "Are your sure you want to terminate this instance?: ")
-        if final_notice.lower() == "yes" or final_notice.lower() == 'y':
-            get_instance = input("Please enter your instance id: ")
-            ec2_cli.terminate_instances(InstanceIds=[get_instance])
-            print("Terminating your ec2 instance, please wait.....")
-            waiter = ec2_cli.get_waiter('instance_terminated')
-            waiter.wait(InstanceIds=[get_instance])
-            print(
-                "Your instance is now terminated for good.\nThank you!")
-        elif final_notice.lower() == "no" or final_notice.lower() == "n":
-            print(
-                "I'm glad you changed your mind. Mistakes are never good.\nGoodBye.....")
-            sys.exit()
-        else:
-            print("Your entry was invalid. ")
-            try_again = input("Would you like to try again?: ")
-            if try_again.lower() == "yes" or try_again.lower() == "y":
-                terminate_ec2()
-            else:
-                print("GoodBye.....")
-        return None
-    if __name__ == "__main__":
-        main()
-except Exception as e:
-    print(e)
-
-            if try_again.lower() == "yes":
-                menu()
-            else:
-                print("GoodBye.....")
 
     def start_ec2s():
         get_instance = input("Please enter your instance id: ")
