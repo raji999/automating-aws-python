@@ -7,7 +7,7 @@ ec2_cli = admin.client(service_name='ec2', region_name='us-east-1')
 
 try:
     def main():
-        print(f"This script allows you to:\n-list all your instances.\n-Start an instance.\n-Stop an instance\n-Restart instance\n-Terminate instance/s.")
+        print(f"This script allows you to:\n-list all your instances.\n-Start an instance.\n-Stop an instance.\n-Restart instance.\n-Terminate an instances.")
         print("_______________________________")
         user_promt = input(
             "Do you want to see all your instances now? Please enter yes, no or exit to finish: ")
@@ -29,8 +29,7 @@ try:
             if try_again.lower() == "yes" or try_again.lower() == "y":
                 main()
             else:
-                print("GoodBye.....")
-                sys.exit()
+                print("GoodBye....."), sys.exit()
 
         return user_promt
 
